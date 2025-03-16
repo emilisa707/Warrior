@@ -11,22 +11,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33e49b9a-bf09-43c2-b07a-3540bc9d6655" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Warrior/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Warrior/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PlayerCharacters/BP_HeroCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PlayerCharacters/BP_HeroCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Input/Actions/IA_Jump.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Input/Actions/IA_Look.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Input/Actions/IA_Move.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Input/IMC_Default.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Warrior/Private/Characters/WarriorHeroCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Warrior/Private/Characters/WarriorHeroCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Warrior/Public/Characters/WarriorHeroCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Warrior/Public/Characters/WarriorHeroCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Warrior/Public/WarriorDebugHelper.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Warrior/Public/WarriorDebugHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Warrior/Public/WarriorDebugHelper.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Warrior/Warrior.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Warrior/Warrior.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Warrior.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Warrior.uproject" afterDir="false" />
-    </list>
+    <list default="true" id="33e49b9a-bf09-43c2-b07a-3540bc9d6655" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -515,7 +500,7 @@
       <workItem from="1739093278881" duration="5568000" />
       <workItem from="1740836068572" duration="1726000" />
       <workItem from="1742119201617" duration="2938000" />
-      <workItem from="1742133189858" duration="2885000" />
+      <workItem from="1742133189858" duration="3163000" />
     </task>
     <servers />
   </component>
