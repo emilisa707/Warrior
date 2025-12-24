@@ -4,6 +4,7 @@
 #include "Abilities/GameplayAbility.h"
 #include "WarriorGameplayAbility.generated.h"
 
+class UWarriorAbilitySystemComponent;
 class UPawnCombatComponent;
 
 UENUM()
@@ -30,4 +31,7 @@ protected:
 	
 	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
 	UPawnCombatComponent* GetPawnCombatComponentFromActorInfo() const;
+	
+	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
+	UWarriorAbilitySystemComponent* GetWarriorAbilitySystemComponentFromActorInfo() const;
 };
