@@ -1,7 +1,10 @@
 ﻿#include "Component/Combat/PawnCombatComponent.h"
 
+#include "Components/BoxComponent.h"
+#include "Items/Weapons/WarriorWeaponBase.h"
+
 void UPawnCombatComponent::RegisterSpawnedWeapon(FGameplayTag InWeaponTagToRegister,
-	AWarriorWeaponBase* InWeaponToRegister, bool bRegisterAsEquippedWeapon)
+                                                 AWarriorWeaponBase* InWeaponToRegister, bool bRegisterAsEquippedWeapon)
 {
 	checkf(!CharacterCarriedWeaponMap.Contains(InWeaponTagToRegister), TEXT("A named %s has already been added as carried weapon"), *InWeaponTagToRegister.ToString());
 	check(InWeaponToRegister);
@@ -30,4 +33,22 @@ AWarriorWeaponBase* UPawnCombatComponent::GetCharacterCurrentEquippedWeapon() co
 	if (!CurrentEquippedWeaponTag.IsValid()) return nullptr;
 	
 	return GetCharacterCarriedWeaponByTag(CurrentEquippedWeaponTag);
+}
+
+void UPawnCombatComponent::ToggleWeaponCollision(bool bShouldEnable, EToggleDamageType ToggleDamageType)
+{
+	if (ToggleDamageType == EToggleDamageType::CurrentEquippedWEapon)
+	{
+		AWarriorWeaponBase* WeaponToToggle = GetCharacterCurrentEquippedWeapon();
+		check(WeaponToToggle);
+		if (!bShouldEnable)
+		{
+			WeaponToToggle->GetWeaponCollisionBox()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+		}
+		else
+		{
+			WeaponToToggle->GetWeaponCollisionBox()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		}
+	}
+
 }
