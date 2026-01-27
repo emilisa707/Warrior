@@ -27,7 +27,7 @@ void AWarriorWeaponBase::OnCollisionBoxBeginOverlap(UPrimitiveComponent* Overlap
 	{
 		if (WeaponOwningPawn != HitPawn)
 		{
-			
+			OnWeaponHitTarget.ExecuteIfBound(OtherActor);
 		}
 	}
 }
@@ -35,5 +35,15 @@ void AWarriorWeaponBase::OnCollisionBoxBeginOverlap(UPrimitiveComponent* Overlap
 void AWarriorWeaponBase::OnCollisionBoxEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
+	APawn* WeaponOwningPawn = GetInstigator<APawn>();
+	checkf(WeaponOwningPawn, TEXT("Forgot to assign an instigator as the owning pawn of the weapon : %s"), *GetName());
+
+	if (APawn* HitPawn = Cast<APawn>(OtherActor))
+	{
+		if (WeaponOwningPawn != HitPawn)
+		{
+			OnWeaponPulledFromTarget.ExecuteIfBound(OtherActor);
+		}
+	}
 }
 

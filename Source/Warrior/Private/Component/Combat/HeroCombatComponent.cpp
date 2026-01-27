@@ -7,3 +7,13 @@ AWarriorHeroWeapon* UHeroCombatComponent::GetHeroCarriedWeaponByTag(FGameplayTag
 	return Cast<AWarriorHeroWeapon>(GetCharacterCarriedWeaponByTag(InWeaponTag));
 	
 }
+
+void UHeroCombatComponent::OnHitTargetActor(AActor* HitActor)
+{
+	
+}
+
+void UHeroCombatComponent::OnWeaponPulledFromTargetActor(AActor* HitActor)
+{
+	
+}
