@@ -18,16 +18,16 @@ UWarriorAttributeSet::UWarriorAttributeSet()
 	InitDefensePower(5.f);
 }
 
-void UWarriorAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
+void UWarriorAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
 {
 	if (!CachedPawnUIInterface.IsValid())
 	{
 		CachedPawnUIInterface = TWeakInterfacePtr<IPawnUIInterface>( Data.Target.GetAvatarActor());
 	}
 
-	checkf(CachedPawnUIInterface.IsValid(), TEXT("%s didn't implement IPawnUIInterface"));
+	checkf(CachedPawnUIInterface.IsValid(), TEXT("The Target Avatar Actor %s does not implement IPawnUIInterface"), *Data.Target.GetAvatarActor()->GetActorNameOrLabel());
 	UPawnUIComponent* PawnUIComponent = CachedPawnUIInterface->GetPawnUIComponent();
-	checkf(PawnUIComponent, TEXT("Couldn't extract a PawnUIComponent from %s"), *Data.Target.GetAvatarActor()->GetName());
+	checkf(PawnUIComponent, TEXT("Couldn't extract a PawnUIComponent from %s"),*Data.Target.GetAvatarActor()->GetActorNameOrLabel());
 	
 	if (Data.EvaluatedData.Attribute == GetCurrentHealthAttribute())
 	{
@@ -53,11 +53,11 @@ void UWarriorAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffec
 		const float NewCurrentHealth = FMath::Clamp(OldHealth - DamageDone, 0.f, GetMaxHealth());
 		
 		SetCurrentHealth(NewCurrentHealth);
-		PawnUIComponent->OnCurrentHealthChanged.Broadcast(NewCurrentHealth / GetMaxHealth());
-		const FString DebugMessage = FString::Printf(TEXT("Damage Taken: %f, New Health: %f"), DamageDone, NewCurrentHealth);
+		PawnUIComponent->OnCurrentHealthChanged.Broadcast(GetCurrentHealth() / GetMaxHealth());
+		const FString DebugMessage = FString::Printf(TEXT("Damage Taken: %f, New Health: %f"), DamageDone, GetCurrentHealth());
 		Debug::Print(DebugMessage, FColor::Red);
 
-		if (NewCurrentHealth == 0.f)
+		if (GetCurrentHealth() == 0.f)
 		{
 			UWarriorFunctionLibrary::AddGameplayTagToActorIfNone(Data.Target.GetAvatarActor(), WarriorGameplayTags::Shared_Status_Dead);
 		}
